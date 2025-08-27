@@ -4,10 +4,22 @@
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
+    "./DatePicker": {
+          "import": "./dist/DatePicker.js",
+          "types": "./dist/DatePicker.d.ts"
+        },
+        "./StringToObject": {
+          "import": "./dist/StringToObject.js",
+          "types": "./dist/StringToObject.d.ts"
+        },
+        "./CustomButton": {
+          "import": "./dist/CustomButton.js",
+          "types": "./dist/CustomButton.d.ts"
+      },
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
@@ -21,9 +33,8 @@
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-vite-config": "file:react-vite-config-0.0.21.tgz"
-  },
+    "react-dom": "^19.1.1"
+ },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@types/react": "^19.1.10",
