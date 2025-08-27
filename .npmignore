@@ -1,9 +1,7 @@
 # Exclude config and dev files
-tsconfig.json
 vite.config.ts
 vite.config.js
 .eslintrc.js
 .eslintignore
 .npmignore
-package.json
 eslint.config.js

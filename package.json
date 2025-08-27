@@ -2,8 +2,9 @@
   "name": "react-vite-config",
   "version": "0.0.17",
   "type": "module",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -32,5 +33,11 @@
     "globals": "^16.3.0",
     "typescript": "^5.9.2",
     "vite": "^7.1.2"
-  }
+  },
+  "files": [
+    "dist",
+    "dist/types",
+    "README.md"
+  ]
 }
+
