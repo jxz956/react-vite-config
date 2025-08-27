@@ -1,7 +1,0 @@
-# Exclude config and dev files
-vite.config.ts
-vite.config.js
-.eslintrc.js
-.eslintignore
-.npmignore
-eslint.config.js
