@@ -1,31 +1,22 @@
-import React, { useState, useEffect, ReactNode, JSX } from 'react';
+import React, { JSX, useState } from 'react';
 import CustomButton from './CustomButton';
+import dayjs from 'dayjs';
 
 interface DatePickerProps {
   onDateChange?: (date: Date) => void;
-  children?: ReactNode;
+  children?: React.ReactNode;
 }
 
-export function DatePicker({ onDateChange, children }: DatePickerProps): JSX.Element {
-  const [currentDate, setCurrentDate] = useState<Date>(() => new Date());
-
-  useEffect(() => {
-    if (typeof onDateChange === 'function') {
-      onDateChange(currentDate);
-    }
-  }, [currentDate, onDateChange]);
-
-  const formatted = currentDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+export function DatePicker({ children, onDateChange }: DatePickerProps): JSX.Element {
+  const [currentDateStr, setCurrentDateStr] = useState<string>();
 
   const changeDate = (days: number): void => {
-    const newDate = new Date(currentDate);
-    newDate.setDate(newDate.getDate() + days);
-    setCurrentDate(newDate);
+    const newDate = dayjs(currentDateStr).add(days, 'day');
+    setCurrentDateStr(String(newDate));
+    onDateChange?.(newDate.toDate());
   };
+
+  const formatted = dayjs(currentDateStr).format('YYYY-MM-DD');
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
